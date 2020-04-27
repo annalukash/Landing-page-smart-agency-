@@ -1,0 +1,51 @@
+@import './styles/welcome.css';
+@import './styles/process.css';
+@import './styles/works.css';
+@import './styles/services.css';
+@import './styles/team.css';
+@import './styles/reviews.css';
+@import './styles/socials.css';
+@import './styles/footer.css';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+
+.wrapper {
+    max-width: 1440px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.title-wrapper {
+    text-align: center;
+    font-family: "Open Sans";
+}
+
+.title-wrapper .title {
+    font-size: 50px;
+    font-weight: 600;
+    color: rgba(98, 98, 98, 0.94);
+}
+
+.title-wrapper .title span {
+    color: rgba(252, 103, 68, 0.94);
+}
+
+.title-wrapper .subtitle {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 705px;
+    width: 100%;
+    margin: 20px auto 0;
+}

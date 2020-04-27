@@ -1,0 +1,237 @@
+.process-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.process-wrapper .title-wrapper {
+    margin-top: 144px;
+}
+
+.process-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.process-slide-wrapper {
+    max-width: 262px;
+    width: 100%;
+}
+
+.process-content-block {
+    max-width: 262px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "Open Sans";
+    box-shadow: 0 0 35px 0 rgba(20, 20, 21, 0.21);
+    margin: 100px 0 180px;
+    position: relative;
+}
+
+.blue {
+    background-color: rgb(78, 178, 247);
+}
+
+.violet {
+    background-color: rgb(192, 73, 248);
+}
+
+.lilac {
+    background-color: rgb(129, 126, 255);
+}
+
+.pink {
+    background-color: rgb(247, 71, 112);
+}
+
+.process-content-block i {
+    font-size: 50px;
+    margin: 50px 0 20px;
+}
+
+.process-content-block div {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.process-content-block > span {
+    max-width: 200px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 24px 0 66px;
+}
+
+.process-content-button {
+    display: none;
+}
+
+
+.process-content-block button {
+    width: 228px;
+    height: 55px;
+    border-radius: 27px;
+    box-shadow: 1px 5.9px 14px 0 rgba(20, 20, 21, 0.09);
+    background-color: rgb(255, 255, 255);
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: absolute;
+    bottom: -25px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+.modal-window {
+    background-color: rgb(78, 178, 247);
+    max-width: 1140px;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    text-align: center;
+    font-family: "Open Sans";
+    box-shadow: 1px 5.9px 14px 0 rgba(20, 20, 21, 0.09);
+    transition: transform 100ms;
+}
+
+.modal-window.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 50px 0 30px;
+}
+
+.modal-logo {
+    font-size: 40px;
+}
+
+.modal-body {
+    max-width: 950px;
+    width: 100%;
+    margin: 30px auto 0;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.modal-active button {
+    width: 228px;
+    height: 55px;
+    border-radius: 27px;
+    box-shadow: 1px 5.9px 14px 0 rgba(20, 20, 21, 0.09);
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(0, 0, 0, 0.8);
+    outline: none;
+    cursor: pointer;
+    margin: 30px 0 50px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .process-wrapper .title-wrapper .title {
+        max-width: calc(100% - 20px);
+        width: 100%;
+        margin: 0 auto;
+        font-size: 12vw;
+        text-align: center;
+        margin-bottom: 65px;
+    }
+    .process-wrapper .title-wrapper .subtitle {
+        max-width: calc(100% - 40px);
+        font-size: 5vw;
+        text-align: center;
+    }
+    .process-content {
+        position: relative;
+        overflow: hidden;
+        height: 377px;
+        padding-top: 50px;
+        
+    }
+    .process-content-block {
+        margin: 0 auto;  
+    }
+
+    .process-slide-wrapper {
+        max-width: 100%;
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .process-content-wrapper {
+        position: relative;
+        height: 100%;
+        transition: transform 200ms;
+        display: flex;
+    }
+    .process-content-button {
+        width: 48px;
+        height: 48px;
+        box-shadow: 0.5px 3px 14px 0 rgba(20, 20, 21, 0.5);
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 47%;
+        z-index: 99;
+        transform: translateY(-50%);
+    }
+    
+    .process-content-button.left {
+        left: 5px;
+    }
+    
+    .process-content-button.right {
+        right: 5px;
+    }
+    .modal-window {
+        max-width: calc(100% - 40px);
+        width: 100%;
+    }
+    .modal-body {
+        max-width: calc(100% - 40px);
+        width: 100%;
+        font-size: 5vw;
+    }
+    .modal-title {
+        font-size: 7vw;
+    }
+    .modal-active button {
+        max-width: calc(100% - 40px);
+        width: 100%;
+    }
+}
