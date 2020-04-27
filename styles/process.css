@@ -160,13 +160,16 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
+    .process-wrapper .title-wrapper {
+        margin-top: 100px;
+    }
     .process-wrapper .title-wrapper .title {
         max-width: calc(100% - 20px);
         width: 100%;
         margin: 0 auto;
         font-size: 12vw;
         text-align: center;
-        margin-bottom: 65px;
+        margin-bottom: 55px;
     }
     .process-wrapper .title-wrapper .subtitle {
         max-width: calc(100% - 40px);
@@ -225,7 +228,7 @@
     .modal-body {
         max-width: calc(100% - 40px);
         width: 100%;
-        font-size: 5vw;
+        font-size: 4.2vw;
     }
     .modal-title {
         font-size: 7vw;
