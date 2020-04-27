@@ -48,9 +48,11 @@ const closeWindow = () => {
 };
 
 
+
 openButtons.forEach((openButton, index) => {
     openButton.addEventListener('click', (event) => {
         const background = window.getComputedStyle(event.target.parentElement,null).getPropertyValue("background-color");
+        modalWindow.style.height = (window.innerHeight - 40) + 'px';
         modalWindow.style.backgroundColor = background;
         modalTitle.textContent = blocksTitle[index].textContent;
         modalLogo.innerHTML = blocksIcon[index].outerHTML;
