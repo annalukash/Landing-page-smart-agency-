@@ -52,7 +52,7 @@ const closeWindow = () => {
 openButtons.forEach((openButton, index) => {
     openButton.addEventListener('click', (event) => {
         const background = window.getComputedStyle(event.target.parentElement,null).getPropertyValue("background-color");
-        modalWindow.style.height = (window.innerHeight - 40) + 'px';
+        // modalWindow.style.height = (window.innerHeight - 40) + 'px';
         modalWindow.style.backgroundColor = background;
         modalTitle.textContent = blocksTitle[index].textContent;
         modalLogo.innerHTML = blocksIcon[index].outerHTML;
@@ -143,4 +143,28 @@ workSliderButtonLeft.addEventListener('click', () => {
 
 workSliderButtonRight.addEventListener('click', () => {
     workOnSlide('right');
+});
+
+// tabs 
+
+const tabItems = document.querySelectorAll('.services-tab-item');
+const tabBody = document.querySelectorAll('.services-body-content-wrapper');
+
+const toogleClass = (array, index, elementClass) => {
+    if (array[index].classList.contains(elementClass)) {
+        return;
+    } else if (!(array[index].classList.contains(elementClass))) {
+        array.forEach((item) => {
+            item.classList.remove(elementClass);
+        });
+        array[index].classList.add(elementClass);
+    }
+};
+
+
+tabItems.forEach((tabItem, index) => {
+    tabItem.addEventListener('click', () => {
+        toogleClass(tabBody, index, 'body-active');
+        toogleClass(tabItems, index, 'tab-active');
+    });
 });
