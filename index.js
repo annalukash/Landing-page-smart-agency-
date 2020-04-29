@@ -203,3 +203,39 @@ document.addEventListener('keydown', (event) => {
     }
     
 });
+
+//
+
+const teamSliderButtonLeft = document.querySelector('.team-content-button.left');
+const teamSliderButtonRight = document.querySelector('.team-content-button.right');
+const teamSlides = document.querySelectorAll('.team-content');
+const teamSlidesWrapper = document.querySelector('.team-content-slider-wrapper');
+let teamSlideIndex = 0;
+
+teamSlidesWrapper.style.width = `${teamSlides.length * window.innerWidth}px`;
+
+
+const teamOnSlide = (type) => {
+    type === 'left' ? teamSlideIndex-- : teamSlideIndex++;
+
+    buttonHide(teamSliderButtonLeft, teamSliderButtonRight, teamSlides, teamSlideIndex);
+
+    teamSlidesWrapper.style.transform = `translateX(${teamSlideIndex * -100}%)`;
+
+};
+
+buttonHide(teamSliderButtonLeft, teamSliderButtonRight, teamSlides, teamSlideIndex);
+
+teamSliderButtonLeft.addEventListener('click', () => {
+    teamOnSlide('left');
+});
+
+teamSliderButtonRight.addEventListener('click', () => {
+    teamOnSlide('right');
+});
+
+const teamActive = document.querySelectorAll('.team-active');
+const teamSocial = document.querySelectorAll('.team-active-socia');
+
+const helpMessage = document.querySelectorAll('.team-content-click');
+
