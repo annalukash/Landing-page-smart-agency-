@@ -38,8 +38,8 @@ const modalLogo = document.querySelector('.modal-logo');
 const blocksTitle = document.querySelectorAll('.process-content-block div');
 const blocksIcon = document.querySelectorAll('.process-content-icon');
 
-const closeWindow = () => {
-    modalWindow.classList.remove('active');
+const closeWindow = (modalWindow, modalBackdrop, classStyle) => {
+    modalWindow.classList.remove(classStyle);
     setTimeout(() => {
         modalBackdrop.style.display = 'none';
     }, 100);
@@ -66,12 +66,12 @@ openButtons.forEach((openButton, index) => {
 });
 
 closeButton.addEventListener('click', () => {
-    closeWindow();
+    closeWindow(modalWindow, modalBackdrop, 'active');
 });
 
 document.addEventListener('keydown', (event) => {
     if (event.key === "Escape" || event.key === "Esc") {
-        closeWindow();
+        closeWindow(modalWindow, modalBackdrop, 'active');
     }
     
 });
@@ -167,4 +167,39 @@ tabItems.forEach((tabItem, index) => {
         toogleClass(tabBody, index, 'body-active');
         toogleClass(tabItems, index, 'tab-active');
     });
+});
+
+// services modal window
+
+const openBtns = document.querySelectorAll('.services-body-btn button');
+const closeBtn = document.querySelector('.services-modal-active button');
+const servicesModalBackdrop = document.querySelector('.services-modal-backdrop');
+const servicesModalWindow = document.querySelector('.services-modal-window');
+const servicesModalTitle = document.querySelector('.services-modal-title');
+const servicesModalLogo = document.querySelector('.services-modal-logo');
+const servicesBlocksTitle = document.querySelectorAll('.services-body-title');
+const servicesBlocksIcon = document.querySelectorAll('.services-tab-item i');
+
+openBtns.forEach((openButton, index) => {
+    openButton.addEventListener('click', () => {
+        servicesModalTitle.textContent = servicesBlocksTitle[index].textContent;
+        servicesModalLogo.innerHTML = servicesBlocksIcon[index].outerHTML;
+        servicesModalBackdrop.style.display = 'block';
+        setTimeout(() => {
+            servicesModalWindow.classList.add('active');
+        }, 100);
+        
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    closeWindow(servicesModalWindow, servicesModalBackdrop, 'active');
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape" || event.key === "Esc") {
+        closeWindow(servicesModalWindow, servicesModalBackdrop, 'active');
+    }
+    
 });
