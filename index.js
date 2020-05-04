@@ -8,6 +8,7 @@ let openMenu = () => {
         burgerMenu.classList.add('open');
 
         burgerButton.style.display = 'none';
+        document.body.style.overflow = 'hidden';
     });
 };
 
@@ -16,6 +17,7 @@ let closeMenu = (button) => {
         burgerMenu.classList.remove('open');
 
         burgerButton.style.display = 'block';
+        document.body.style.overflow = '';
     });
 };
 
@@ -235,7 +237,139 @@ teamSliderButtonRight.addEventListener('click', () => {
 });
 
 const teamActive = document.querySelectorAll('.team-active');
-const teamSocial = document.querySelectorAll('.team-active-socia');
-
+const teamSocial = document.querySelectorAll('.team-active-social');
+const teamName = document.querySelectorAll('.team-content-name');
 const helpMessage = document.querySelectorAll('.team-content-click');
 
+
+const clickChange = (index) => {
+    if (teamName[index].classList.contains('name-onclick')) {
+        teamName[index].classList.remove('name-onclick');
+        teamSocial[index].classList.remove('social-onclick');
+        teamActive[index].classList.remove('active-onclick');
+    } else {
+        teamName[index].classList.add('name-onclick');
+        teamSocial[index].classList.add('social-onclick');
+        teamActive[index].classList.add('active-onclick');
+    }
+};
+
+teamSlides.forEach((teamSlide, i) => {
+    teamSlide.addEventListener('mouseenter', () => {
+        clickChange(i);
+    });
+    teamSlide.addEventListener('mouseleave', () => {
+        clickChange(i);
+    });
+});
+
+// slider web
+
+const reviewsSliderButtonLeft = document.querySelector('.reviews-content-button.left');
+const reviewsSliderButtonRight = document.querySelector('.reviews-content-button.right');
+const reviewsSlides = document.querySelectorAll('.reviews-slider');
+const reviewsSlidesWrapper = document.querySelector('.reviews-slider-wrapper');
+let reviewsSlideIndex = 0;
+const reviewsSliderTods = document.querySelectorAll('.reviews-slider-dot');
+
+reviewsSlidesWrapper.style.width = `${reviewsSlides.length * window.innerWidth}px`;
+
+
+const reviewsOnSlide = (type) => {
+    type === 'left' ? reviewsSlideIndex-- : reviewsSlideIndex++;
+
+    buttonHide(reviewsSliderButtonLeft, reviewsSliderButtonRight, reviewsSlides, reviewsSlideIndex);
+
+    reviewsSlidesWrapper.style.transform = `translateX(${reviewsSlideIndex * -100}%)`;
+
+};
+
+buttonHide(reviewsSliderButtonLeft, reviewsSliderButtonRight, reviewsSlides, reviewsSlideIndex);
+
+reviewsSliderButtonLeft.addEventListener('click', () => {
+    reviewsOnSlide('left');
+    toogleClass(reviewsSliderTods, reviewsSlideIndex, 'dot-active');
+});
+
+reviewsSliderButtonRight.addEventListener('click', () => {
+    reviewsOnSlide('right');
+    toogleClass(reviewsSliderTods, reviewsSlideIndex, 'dot-active');
+});
+
+// slider mobile
+
+const reviewsSliderButtonLeftMob = document.querySelector('.reviews-content-button-mobile.left');
+const reviewsSliderButtonRightMob = document.querySelector('.reviews-content-button-mobile.right');
+const reviewsSlidesMob = document.querySelectorAll('.reviews-slider-mobile');
+const reviewsSlidesWrapperMob = document.querySelector('.reviews-slider-wrapper-mobile');
+let reviewsSlideIndexMob = 0;
+const reviewsSliderTodsMob = document.querySelectorAll('.reviews-slider-dot-mobile');
+
+reviewsSlidesWrapperMob.style.width = `${reviewsSlidesMob.length * window.innerWidth}px`;
+
+
+const reviewsOnSlideMob = (type) => {
+    type === 'left' ? reviewsSlideIndexMob-- : reviewsSlideIndexMob++;
+
+    buttonHide(reviewsSliderButtonLeftMob, reviewsSliderButtonRightMob, reviewsSlidesMob, reviewsSlideIndexMob);
+
+    reviewsSlidesWrapperMob.style.transform = `translateX(${reviewsSlideIndexMob * -100}%)`;
+
+};
+
+buttonHide(reviewsSliderButtonLeftMob, reviewsSliderButtonRightMob, reviewsSlidesMob, reviewsSlideIndexMob);
+
+reviewsSliderButtonLeftMob.addEventListener('click', () => {
+    reviewsOnSlideMob('left');
+    toogleClass(reviewsSliderTodsMob, reviewsSlideIndexMob, 'dot-active');
+});
+
+reviewsSliderButtonRightMob.addEventListener('click', () => {
+    reviewsOnSlideMob('right');
+    toogleClass(reviewsSliderTodsMob, reviewsSlideIndexMob, 'dot-active');
+});
+
+//
+
+const footerOpenBtns = document.querySelector('.footer-content-btn button');
+const footerCloseBtn = document.querySelector('.footer-modal-btn button');
+const footerModalBackdrop = document.querySelector('.footer-backdrop');
+const footerModalWindow = document.querySelector('.footer-modal-window');
+
+footerOpenBtns.addEventListener('click', () => {
+    footerModalBackdrop.style.display = 'block';
+        setTimeout(() => {
+            footerModalWindow.classList.add('active');
+        }, 100);
+        
+        document.body.style.overflow = 'hidden';
+});
+
+footerCloseBtn.addEventListener('click', () => {
+    closeWindow(footerModalWindow, footerModalBackdrop, 'active');
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape" || event.key === "Esc") {
+        closeWindow(footerModalWindow, footerModalBackdrop, 'active');
+    }
+    
+});
+
+//
+const btnScroll = document.querySelector(".scroll-to-top-btn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+const scrollFunction = ()  => 
+    btnScroll.style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ?  "block" : "none";
+
+
+window.onscroll = () => scrollFunction();
+
+// When the user clicks on the button, scroll to the top of the document
+const scrollToTop  = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+};
+
+btnScroll.onclick = scrollToTop;

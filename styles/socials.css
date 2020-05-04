@@ -1,0 +1,22 @@
+.socials-wrapper {
+    background-color: rgb(251, 251, 251);
+}
+
+.socials-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 77px 0 98px;
+}
+
+.socials-content img {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .socials-wrapper {
+        display: none;
+    }
+}
