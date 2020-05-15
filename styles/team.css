@@ -68,11 +68,25 @@
 }
 
 .team-content-click {
-    display: none;
+    display: block;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+.team-content-click button {
+    width: 150px;
+    border-radius: 27px;
+    box-shadow: 1.9px 10.8px 20px 0 rgba(20, 20, 21, 0.07);
+    border: solid 1px rgba(1, 2, 2, 0.07);
+    background-color: rgb(255, 110, 71, 0.7);
+    padding: 10px 0;
+    color: rgb(255, 255, 255);
+    font-family: "Open Sans";
+    font-size: 16px;
 }
 
 .team-active-social {
@@ -198,19 +212,5 @@
     
     .team-content-button.right {
         right: 5px;
-    }
-    .team-content-click {
-        display: block;
-    }
-    .team-content-click button {
-        width: 150px;
-        border-radius: 27px;
-        box-shadow: 1.9px 10.8px 20px 0 rgba(20, 20, 21, 0.07);
-        border: solid 1px rgba(1, 2, 2, 0.07);
-        background-color: rgb(255, 110, 71, 0.7);
-        padding: 10px 0;
-        color: rgb(255, 255, 255);
-        font-family: "Open Sans";
-        font-size: 16px;
     }
 }

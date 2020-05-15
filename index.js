@@ -359,17 +359,45 @@ document.addEventListener('keydown', (event) => {
 //
 const btnScroll = document.querySelector(".scroll-to-top-btn");
 
-// When the user scrolls down 20px from the top of the document, show the button
+
 const scrollFunction = ()  => 
     btnScroll.style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ?  "block" : "none";
 
 
 window.onscroll = () => scrollFunction();
 
-// When the user clicks on the button, scroll to the top of the document
 const scrollToTop  = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 };
 
 btnScroll.onclick = scrollToTop;
+
+const teamShowDetailsBtn = document.querySelectorAll('.team-content-click');
+
+function showDetails(min, max) {
+    if (window.pageYOffset >= min && window.pageYOffset < max) {
+        teamShowDetailsBtn.forEach((button) => {
+            button.style.opacity = '1';
+        });
+        setTimeout(hiddenDetails, 1100);
+    }
+}
+
+function openDetails(min, max) {
+    setTimeout(showDetails(min, max), 1000);
+}
+
+function hiddenDetails() {
+    teamShowDetailsBtn.forEach((button) => {
+        button.style.opacity = '0';
+    });
+}
+
+window.addEventListener('scroll', () => {
+    if (document.body.clientWidth > 720) {
+        openDetails(4200, 4900);
+    } else {
+        openDetails(3320, 3900);
+    }
+});
